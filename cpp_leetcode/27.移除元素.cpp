@@ -22,7 +22,6 @@ public:
                 nums[slow] = nums[fast];
                 slow++;
             }
-            
         }
         return slow;
         // int size = nums.size();
