@@ -1,0 +1,33 @@
+// @before-stub-for-debug-begin
+#include <vector>
+#include <string>
+// #include "commoncppproblem383.h"
+
+using namespace std;
+// @before-stub-for-debug-end
+
+/*
+ * @lc app=leetcode.cn id=383 lang=cpp
+ *
+ * [383] 赎金信
+ */
+
+// @lc code=start
+class Solution {
+public:
+    bool canConstruct(string ransomNote, string magazine) {
+        int record[26] = {0};
+        for (int i = 0; i < magazine.size(); i++) {
+            record[magazine[i] - 'a']++;
+        }
+        for (int j = 0; j < ransomNote.size(); j++) {
+            if (record[ransomNote[j] - 'a'] == 0) {
+                return false;
+            }
+            record[ransomNote[j] - 'a']--;
+        }
+        return true;
+    }
+};
+// @lc code=end
+
